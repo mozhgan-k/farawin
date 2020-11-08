@@ -5,10 +5,10 @@
     </div>
     <div class="r-container bg-white mt-12 p-8">
       <div class="title flex justify-center">
-      <h3 class="mb-3 text-purple-500">Welcome to Farawin</h3>
+      <h3 class="mb-3 text-purple-500 font-semibold">Welcome to Farawin</h3>
       </div>
       <div class="l-title flex justify-center">
-        <h4 class="m-0 text-purple-800">Create account</h4>
+        <h4 class="m-0 text-purple-800 font-semibold">Create account</h4>
       </div>
       <div class="l-body">
         <form @submit.prevent="register()">
@@ -26,11 +26,11 @@
              name="password" v-model="pass" autocomplete="new-password"/>
              <a class="toggle text-sm" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-2"></i></a>
           </div>
-          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white p-2 relative hover:opacity-75" type="submit">
+          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white p-3 relative hover:opacity-75 focus:outline-none" type="submit">
               <fw-loading v-if="loading" class="loading"/> Create account
           </button>
           <hr/>
-          <div class="flex justify-center text-sm font-normal mt-3 hover:text-purple-900">
+          <div class="flex justify-center text-base font-normal mt-3 hover:text-purple-900">
             <router-link to="/login">
               <small>Have an account? / Login</small>
             </router-link>

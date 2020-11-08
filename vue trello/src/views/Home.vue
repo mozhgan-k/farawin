@@ -1,31 +1,29 @@
 <template>
   <div class="home">
-    <div id="navbar">
-     <ul class="nav-list">
-       <li><a style="font-weight:bold;color:#eddcd2" v-text="user.username"></a></li>
-       <li><a @click="myTask()"><i class="fa fa-list-alt"></i></a></li>
-       <li><a @click="openC=true" type="button"><i class="fa fa-plus"></i></a></li>
-       <router-link v-if="user.role == 'admin'" to="/members"><i class="fa fa-users"></i></router-link>
-       <router-link to="/login" class="icon" @click="LogOut()"><i class="fa fa-power-off"></i></router-link>
+    <div class="bg-gray-900 p-4 w-full sticky top-0">
+     <ul class="flex text-white justify-around">
+       <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a></li>
+       <li><a @click="myTask()" class="hover:text-purple-400"><i class="fa fa-list-alt"></i></a></li>
+       <li><a @click="openC=true" type="button" class="hover:text-purple-400"><i class="fa fa-plus"></i></a></li>
+       <router-link v-if="user.role == 'admin'" to="/members"><i class="fa fa-users hover:text-purple-400"></i></router-link>
+       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off hover:text-purple-400"></i></router-link>
      </ul>
     </div>
   <section>
-      <div id="d-flex">
         <div class="m-container">
-          <div class="card" v-for="board in boards" :key="board._id">
+          <div class="card font-semibold bg-pink-200 h-auto m-12 p-2 rounded-md" v-for="board in boards" :key="board._id">
             <a @click="list(board)">
-              <h4 style="color:#240046; margin-top:2px;" v-text="board.name"></h4>
+              <h4 class="inline-block text-purple-900 text-base" v-text="board.name"></h4>
             </a>
-           <div class="edit">
-              <a @click="virayesh(board)"><i class="fas fa-pencil-alt" style="color:#40916c;margin-right:10px;"></i></a>
-              <a @click="pak(board)"><i class="fas fa-trash-alt" style="color:#d00000"></i></a>
+           <div class="float-right">
+              <a @click="virayesh(board)"><i class="fas fa-pencil-alt text-sm mr-2 text-green-700"></i></a>
+              <a @click="pak(board)"><i class="fas fa-trash-alt text-sm text-red-700"></i></a>
            </div>
             <div>
-              <p class="tasks" style="display:flex;flex-direction:column;" v-text="board.desc"></p>
+              <p class="flex flex-col mt-2 mb-2 bg-white text-blue-900 text-sm p-2" v-text="board.desc"></p>
             </div>
           </div>
        </div>
-      </div>
      </section>
      <div class="overlay" v-if="openC" @click.self="openC=false">
        <create v-if="openC" @aclose = 'aClose'/>
@@ -42,50 +40,9 @@
 h1, h2, h3, h4, h5, h6{
   margin: 0;
 }
-#navbar{
-    background-color:var(--dark-color);
-    padding:3px;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    }
- .nav-list{
-   display: flex;
-   color: #f4f4f4;
-   justify-content: space-around;
- }
- .nav-list a:hover{
-   color: #ddbea9;
- }
- .fa{
-   color: #f4f4f4;
- }
- .fa:hover{
-   color: #ddbea9;
- }
-  .card{
-    background: #ffddd2 ;
-    width: 250px;
-    height: fit-content;
-    margin: 3rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 12px 8px -4px var(--dark-color);
-  }
-  .card h4{
-    display: inline-block;
-  }
-  .tasks{
-    margin-top:3px;
-    margin-bottom:5px;
-    background-color: #f4f4f4;
-    color:#3c096c;
-    font-size:14px;
-    padding: 5px;
-  }
-  .edit{
-    float: right;
-  }
+.card{
+  width: 250px;
+}
 </style>
 <script lang="ts">
 import { defineComponent } from 'vue'

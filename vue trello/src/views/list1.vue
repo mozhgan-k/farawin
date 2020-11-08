@@ -1,32 +1,31 @@
 <template>
 <div>
- <div id="navbar">
-     <ul class="nav-list">
-       <li><router-link to="/" class="hover"><i class="fa fa-arrow-left"></i>
-       <span class="back">Back</span></router-link></li>
-       <li><a style="font-weight:bold;color:#eddcd2" v-text="user.username"></a></li>
-       <li><a class="creat" @click="openList=true"><i class="fa fa-plus"></i></a></li>
-       <li><a @click="openM=true"><i class="fa fa-users"></i></a></li>
+ <div class="bg-gray-900 p-4 w-full sticky top-0">
+     <ul class="flex text-white justify-around">
+       <li><router-link to="/"><i class="fa fa-arrow-left hover:text-purple-400"></i></router-link></li>
+       <li><a class="font-semibold hover:text-purple-400"  v-text="user.username"></a></li>
+       <li><a class="hover:text-purple-400" @click="openList=true"><i class="fa fa-plus"></i></a></li>
+       <li><a @click="openM=true"><i class="fa fa-users hover:text-purple-400"></i></a></li>
      </ul>
  </div>
       <div class="m-container">
         <div v-for="lists in listsBoard" :key="lists._id">
-          <ul class="todo">
-            <li style="font-size:18px;margin:4px;padding:4px;">
-              <span v-text="lists.name" style="display:inline-block"></span>
-              <div style="display: block; float: right">
-              <a @click="virayesh(lists)"><i class="fas fa-pencil-alt" style="color:#40916c;margin-right:10px;"></i></a>
-              <a @click="pak(lists)"><i class="fas fa-trash-alt" style="color:#d00000"></i></a>
+          <ul class="todo bg-purple-200 m-6 text-purple-800 rounded-md h-auto">
+            <li class="text-base m-1 p-1">
+              <span v-text="lists.name" class="inline-block text-lg font-semibold p-2"></span>
+              <div class="block float-right p-2">
+              <a @click="virayesh(lists)"><i class="fas fa-pencil-alt text-base mr-2 text-green-700"></i></a>
+              <a @click="pak(lists)"><i class="fas fa-trash-alt text-base text-red-700"></i></a>
               </div>
             </li>
             <div v-for="task in tasks" :key="task._id">
             <div v-if="task.listId == lists._id">
-            <li class="todo-item1" @click="change(task)">
+            <li class="bg-white text-blue-900 m-3 p-3 rounded cursor-pointer" @click="change(task)">
               <div v-text="task.desc"></div>
             </li>
             </div>
             </div>
-            <li><a class="btn-add" type="button" @click="addCard(lists)"> Add Card </a></li>
+            <li><a class="p-1 text-base ml-2 font-semibold text-pink-900 hover:text-purple-600" type="button" @click="addCard(lists)"> Add Card </a></li>
           </ul>
        </div>
       </div>
@@ -54,73 +53,6 @@
 h1,h2,h3,h4,h5,h6{
     margin: 0;
 }
-#navbar{
-    background-color:var(--dark-color);
-    padding:3px;
-    width: 100%;
-    position: sticky;
-    top: 0;
-}
-.nav-list{
-   display: flex;
-   color: #f4f4f4;
-   justify-content: space-around;
- }
- .nav-list a:hover{
-   color: #ddbea9;
- }
-  .fa-arrow-left{
-    font-size: 16px;
-    color:#f4f4f4;
-}
-.fa-arrow-left:hover{
-    color:#ddbea9 ;
-}
-.back{
-    color:#f4f4f4;
-    margin:4px;
-    font-weight: bold;
-}
-.back:hover{
-    color:#ddbea9 ;
-}
-.edit{
-    font-size: 14px;
-}
-.todo{
-    background-color: #eee4e1;
-    margin: 30px;
-    color: #997b66;
-    padding: 5px;
-    border-radius: 5px;
-    height: fit-content;
-}
-    .todo-item1{
-        background-color: #ffffff;
-        color: #303952;
-        margin:10px;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .todo-item2{
-        background-color: #ffffff;
-        color: #303952;
-        margin-left:10px;
-        margin-right:10px;
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .btn-add{
-        padding: 3px;
-        font-size: 15px;
-        margin-left: 8px;
-        font-weight: bold;
-    }
-    .m-container a:hover{
-        color:#3c096c;
-    }
 @media(max-width:768px){
   .todo{
       width: 300px;

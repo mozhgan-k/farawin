@@ -1,22 +1,22 @@
 <template>
-  <div class="modal-style">
-    <div v-show="error" class="error" style="margin-bottom: 1rem; margin-top:0">
-    <p style="color:#fff;" v-text="error"></p>
+  <div class="flex flex-col items-center">
+    <div v-show="error" class="error flex items-center justify-center bg-red-700 rounded-md mt-8 mb-1">
+    <p class="text-white" v-text="error"></p>
     </div>
-    <div class="modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Add New List</h4>
+    <div class="modal h-full outline-none transition-all duration-700">
+    <div class="flex justify-center relative w-auto m-2">
+      <div class="relative flex flex-col w-4/5 bg-white border border-solid border-gray-300 rounded-md">
+        <div class="flex items-center justify-center p-3 bg-purple-200 border-b border-solid border-purple-300">
+          <h4 class="text-purple-900">Add New List</h4>
         </div>
         <form @click.prevent="created()">
-        <div class="modal-body">
-          <div class="form-control">
-          <input type="text" class="modal-input border-rad" placeholder="List Name" v-model="listName" v-autofocus>
+        <div class="relative p-4 bg-purple-100">
+          <div>
+          <input type="text" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="List Name" v-model="listName" v-autofocus>
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn1 border-rad">Create</button>
+        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none">Create</button>
         </div>
         </form>
       </div>

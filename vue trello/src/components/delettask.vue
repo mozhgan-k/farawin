@@ -1,13 +1,13 @@
 <template>
-  <div id="alert">
-        <div id="myModal" class="modal" role="dialog">
-          <div class="modal-dialog">
-          <div class="modal-content">
-        <div class="modal-body">
+  <div>
+        <div class="modal h-full outline-none transition-all duration-700">
+          <div class="flex justify-center relative w-auto m-2">
+          <div class="relative flex flex-col w-4/5 bg-white border border-solid border-gray-300 rounded-md">
+        <div class="relative p-4 bg-purple-100">
           <h5>Are you sure you want to delete this item?</h5>
         </div>
-        <div class="modal-footer">
-          <button class="btn1 border-rad" @click="deletTask()">Delete</button>
+        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none" @click="deletTask()">Delete</button>
         </div>
       </div>
     </div>

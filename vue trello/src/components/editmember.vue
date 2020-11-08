@@ -1,24 +1,24 @@
 <template>
-  <div id="edit-member">
-        <div id="myModal" class="modal" role="dialog">
-          <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Member</h4>
+  <div>
+        <div class="modal h-full outline-none transition-all duration-700">
+          <div class="flex justify-center relative w-auto m-2">
+          <div class="relative flex flex-col w-4/5 bg-white border border-solid border-gray-300 rounded-md">
+          <div class="flex items-center justify-center p-3 bg-purple-200 border-b border-solid border-purple-300">
+            <h4 class="text-purple-900">Edit Member</h4>
         </div>
-        <div class="modal-body">
-          <div class="form-control">
-          <input type="username" class="modal-input border-rad" placeholder="Username" v-autofocus v-model="username">
+        <div class="relative p-4 bg-purple-100">
+          <div>
+          <input type="username" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Username" v-autofocus v-model="username">
           </div>
-          <div class="form-control">
-          <input type="email" class="modal-input border-rad" placeholder="Email" v-model="email">
+          <div>
+          <input type="email" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Email" v-model="email">
           </div>
-          <div class="form-control">
-          <input type="text" class="modal-input border-rad" placeholder="Password" v-model="password">
+          <div>
+          <input type="text" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Password" v-model="password">
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn1 border-rad" @click="editUser()">Save</button>
+        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none" @click="editUser()">Save</button>
         </div>
       </div>
     </div>

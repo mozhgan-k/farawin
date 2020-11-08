@@ -1,12 +1,12 @@
 <template>
-  <div id="board-members">
-    <div class="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Board Members</h4>
+  <div>
+    <div class="modal h-full outline-none transition-all duration-700">
+      <div class="flex justify-center relative w-auto m-2">
+        <div class="relative flex flex-col w-4/5 bg-white border border-solid border-gray-300 rounded-md">
+          <div class="flex items-center justify-center p-3 bg-purple-200 border-b border-solid border-purple-300">
+            <h4 class="text-purple-900">Board Members</h4>
           </div>
-          <div class="modal-body">
+          <div class="relative p-4 bg-purple-100">
             <table class="table">
               <thead class="h-table">
                 <th>Members</th>
@@ -30,63 +30,6 @@
 h4{
     margin: 0;
 }
-    .modal-header{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: .5rem;
-      background-color: #f0eae8;
-       .modal-title {
-        color: var(--dark-color);
-        padding: 6px;
-      }
-    }
-    .modal-body {
-    position: relative;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    }
-    .modal-footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #f0eae8;
-    padding-top: .5rem;
-    border-top: 1px solid #dee2e6;
-    }
-    .add-btn {
-    padding: 0.3rem 0.75rem;
-    font-size: 1rem;
-    line-height: 2;
-    margin-left: 10px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: #735d78;
-    color: #f4f4f4;
-    &:focus {
-     outline: 0;
-    }
-   &:hover {
-    opacity: .8;
-  }
- }
-  .form-inline {
-  display: flex;
-  align-items: center;
-  .form-group {
-  display: flex;
-  align-items: center;
-    }
- .form-control {
-  display: inline-block;
-  width: auto;
-  vertical-align: middle;
-  padding: 9px;
-  border: none;
-   }
-  }
   .table {
   width: 75%;
   margin-bottom: 1rem;
@@ -119,9 +62,6 @@ h4{
   }
   .members{
     width: 90%;
-  }
-  .modal-dialog{
-    width: fit-content;
   }
 }
 </style>
