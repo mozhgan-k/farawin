@@ -1,36 +1,36 @@
 <template>
-  <div id="register">
+  <div class="flex flex-col justify-center items-center">
     <div v-show="error" class="error">
-      <p style="color:#fff;" v-text="error"></p>
+      <p class="text-white" v-text="error"></p>
     </div>
-    <div class="r-container">
-      <div class="title" style="display:flex; justify-content: center">
-      <h3 style="color:var(--muted-color);margin-bottom:12px">Welcome to Farawin</h3>
+    <div class="r-container bg-white mt-12 p-8">
+      <div class="title flex justify-center">
+      <h3 class="mb-3 text-purple-500">Welcome to Farawin</h3>
       </div>
-      <div class="l-title" style="display:flex; justify-content: center">
-        <h4 style="margin:0;font-size:20px">Create account</h4>
+      <div class="l-title flex justify-center">
+        <h4 class="m-0 text-purple-800">Create account</h4>
       </div>
       <div class="l-body">
         <form @submit.prevent="register()">
-          <div class="form-group">
-            <input type="text" class="form-control border-rad" placeholder="Username"
+          <div>
+            <input type="text" class="border border-purple-800 border-solid rounded-md text-base w-full p-3 border-opacity-50 mt-2 focus:bg-purple-100 outline-none" placeholder="Username"
             name="username" v-model="user"
             v-autofocus/>
           </div>
-          <div class="form-group">
-            <input type="email" class="form-control border-rad" placeholder="Email"
+          <div>
+            <input type="email" class="border border-purple-800 border-solid rounded-md text-base w-full p-3 border-opacity-50 mt-1 focus:bg-purple-100 outline-none" placeholder="Email"
             name="email" v-model="email"/>
           </div>
-          <div class="toggle-c border-rad">
-            <input :type="fieldType" placeholder="Password"
+          <div class="flex items-center border border-purple-800 border-solid border-opacity-50 mt-1 mb-3 bg-white rounded-md w-full">
+            <input :type="fieldType" placeholder="Password" class="w-full border-opacity-75 outline-none p-3 text-base focus:bg-purple-100 rounded-md bg-transparent"
              name="password" v-model="pass" autocomplete="new-password"/>
-             <a class="toggle" @click="switchField()"><i class="fa fa-eye"></i></a>
+             <a class="toggle text-sm" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-2"></i></a>
           </div>
-          <button :class="{'is-loading': loading}" :disabled="loading" class="btn-block btn-primary border-rad" type="submit">
+          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white p-2 relative hover:opacity-75" type="submit">
               <fw-loading v-if="loading" class="loading"/> Create account
           </button>
           <hr/>
-          <div class="smalls">
+          <div class="flex justify-center text-sm font-normal mt-3 hover:text-purple-900">
             <router-link to="/login">
               <small>Have an account? / Login</small>
             </router-link>
@@ -42,50 +42,18 @@
 </template>
 
 <style scoped lang="scss">
-    #register{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      a{
-       display: block;
-       text-align: center;
-    }
     .r-container{
       width: 450px;
-      align-items: center;
-      justify-content: center;
-      background: #f4f4f4;
-      margin-top: 1.5rem;
-      padding: 2rem;
-      .form-control{
-        border: 1px solid #adb5bd;
-      }
-      .toggle-c{
-        display: flex;
-        align-items: center;
-        border: 1px solid #adb5bd;
-        margin-top: 0.75rem;
-        margin-bottom: 0.75rem;
-        background-color: #ffffff;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        input{
-          width: 98%;
-          outline: 0;
-          border: 0;
-          padding: .7rem;
-           &:focus{
-          background-color: #fcf9f9;
-          border-radius: 5px;
-          outline: 0;
-       }
-        }
-        i{
-          color: var(--muted-color);
-          font-size: 16px;
-          margin: 0 10px;
-        }
-      }
+      .is-loading {
+     color:transparent;
+  }
+  .loading{
+    font-size: 8px;
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+  }
   }
   @media(max-width: 768px){
   .r-container{
@@ -95,10 +63,6 @@
   .title{
     font-size: 16px;
   }
-  .toggle-c{
-    width: 100%;
-  }
-}
 }
 </style>
 <script lang="ts">
