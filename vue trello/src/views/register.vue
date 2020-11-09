@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-    <div v-show="error" class="error">
+    <div v-show="error" class="error flex items-center justify-center bg-red-700 rounded-md mt-8 mb-1">
       <p class="text-white" v-text="error"></p>
     </div>
     <div class="r-container bg-white mt-12 p-8">

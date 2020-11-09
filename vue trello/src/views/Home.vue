@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
+  <div>
     <div class="bg-gray-900 p-4 w-full sticky top-0">
      <ul class="flex text-white justify-around">
        <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a></li>
-       <li><a @click="myTask()" class="hover:text-purple-400"><i class="fa fa-list-alt"></i></a></li>
-       <li><a @click="openC=true" type="button" class="hover:text-purple-400"><i class="fa fa-plus"></i></a></li>
-       <router-link v-if="user.role == 'admin'" to="/members"><i class="fa fa-users hover:text-purple-400"></i></router-link>
-       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off hover:text-purple-400"></i></router-link>
+       <li><a @click="myTask()" class="hover:text-purple-400"><i class="fa fa-list-alt text-lg"></i></a></li>
+       <li><a @click="openC=true" type="button" class="hover:text-purple-400"><i class="fa fa-plus text-lg"></i></a></li>
+       <router-link v-if="user.role == 'admin'" to="/members"><i class="fa fa-users text-lg hover:text-purple-400"></i></router-link>
+       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-lg hover:text-purple-400"></i></router-link>
      </ul>
     </div>
   <section>

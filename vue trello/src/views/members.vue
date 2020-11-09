@@ -1,47 +1,47 @@
 <template>
-    <div id="members">
-     <div id="navbar">
-      <ul class="nav-list">
-        <li><a style="font-weight:bold;color:#eddcd2" v-text="user.username"></a></li>
-        <li><router-link to="/"><i class="fa fa-th"></i></router-link></li>
-        <router-link to="/login" class="icon"><i class="fa fa-power-off"></i></router-link>
+    <div>
+     <div class="bg-gray-900 p-4 w-full sticky top-0">
+      <ul class="flex text-white justify-around">
+        <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a></li>
+        <li><router-link to="/"><i class="fa fa-th text-lg hover:text-purple-400"></i></router-link></li>
+        <router-link to="/login"><i class="fa fa-power-off text-lg hover:text-purple-400"></i></router-link>
       </ul>
      </div>
-     <div id="list-member">
-      <div v-show="error" class="error">
-        <p style="color:#fff;" v-text="error"></p>
+     <div class="flex flex-col items-center p-3">
+      <div v-show="error" class="error flex items-center justify-center bg-red-700 rounded-md mt-8 mb-1">
+        <p class="text-white" v-text="error"></p>
       </div>
        <form>
-       <div class="form-inline">
-         <div class="form-group">
-          <input type="username" placeholder="Username" class="form-control border-rad" v-model="username2">
-         </div>
-         <div class="form-group">
-          <input type="text" placeholder="Email" class="form-control border-rad" v-model="email2">
-         </div>
-         <div class="form-group">
-          <input type="text" placeholder="Password" class="form-control border-rad" v-model="password2">
+       <div class="form-inline flex flex-col justify-center items-center mt-8 mb-2">
+         <div>
+          <input type="username" placeholder="Username" class="border-none mb-2 rounded-md p-2 w-full focus:bg-purple-100 outline-none " v-model="username2">
          </div>
          <div>
-          <button class="add-btn border-rad" type="button" @click="add()">Add</button>
+          <input type="text" placeholder="Email" class="border-none mb-2 rounded-md p-2 w-full focus:bg-purple-100 outline-none" v-model="email2">
+         </div>
+         <div>
+          <input type="text" placeholder="Password" class="border-none rounded-md p-2 w-full focus:bg-purple-100 outline-none" v-model="password2">
          </div>
         </div>
+        <div>
+          <button class="w-full mb-4 p-1 text-base border-none outline-none text-white rounded-md leading-loose bg-purple-900 cursor-pointer hover:opacity-75 focus:outline-none" type="button" @click="add()">Add</button>
+         </div>
        </form>
-       <div class="flex">
-        <table class="table">
-            <thead class="h-table">
-                <th>Members</th>
-                <th>Email</th>
+       <div class="flex items-center justify-center">
+        <table class="table-auto bg-white text-blue-900 mb-2 p-2 border-2 border-white border-solid">
+            <thead class="bg-purple-800 text-white">
+                <th class="px-4 py-2 border-t border-solid border-purple-300 align-top">Members</th>
+                <th class="px-4 py-2 border-t border-solid border-purple-300 align-top">Email</th>
             </thead>
-            <tbody class="t-body">
-              <tr v-for="user in users" v-bind:key="user._id">
-                <td class="edit"><a v-text="user.username" ></a>
-                  <div>
-                  <a @click="editMember(user)"><i class="fas fa-pencil-alt" style="color:#40916c;margin-right:10px;"></i></a>
-                  <a @click="remove(user)"><i class="fa fa-times" style="color:#d00000"></i></a>
+            <tbody class="border-2 border-solid border-white bg-purple-100">
+              <tr class="px-4 py-2 border-t border-solid border-purple-300 align-top" v-for="user in users" v-bind:key="user._id">
+                <td class="flex justify-between p-3 hover:bg-purple-200"><a v-text="user.username" ></a>
+                  <div class="ml-2">
+                  <a @click="editMember(user)"><i class="fas fa-pencil-alt text-sm mr-2 text-green-700"></i></a>
+                  <a @click="remove(user)"><i class="fa fa-times text-sm text-red-700"></i></a>
                   </div>
                 </td>
-                <td><a v-text="user.email"></a></td>
+                <td class="px-4 py-2 hover:bg-purple-200"><a v-text="user.email"></a></td>
               </tr>
             </tbody>
         </table>
@@ -57,123 +57,12 @@
 </template>
 
 <style scoped>
-
-#navbar{
-    background-color:var(--dark-color);
-    padding:3px;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    }
- .nav-list{
-   display: flex;
-   color: #f4f4f4;
-   justify-content: space-around;
- }
- .nav-list a:hover{
-   color: #ddbea9;
- }
- .fa{
-    color: #f4f4f4;
- }
- .fa:hover{
-    color: #ddbea9;
- }
- .icon{
-   color: #a5a58d;
- }
- .edit{
-    display:flex;
-    justify-content: space-between;
-  }
-  .fa-pencil-alt,.fa-times{
-    font-size: 16px;
-  }
-  #list-member{
-    display:flex;
-    flex-direction:column;
-    align-items:center
-  }
-  .add-btn{
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 2;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color:#735d78;
-    color: #f4f4f4;
-  }
-   .add-btn:focus{
-     outline: 0;
-   }
-   .add-btn:hover{
-     opacity: .8;
-   }
-  .form-inline{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  .form-inline .form-control {
+  .form-control {
     width: 200px;
-    border: none;
-    margin-right: 7px;
-  }
-  .form-control:focus{
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
   }
   .table {
   width: 100%;
   max-width: 400px;
-  margin-bottom: 0.5rem;
-  color: #212529;
-  background-color: #f4f4f4;
-}
-
-.table th,
-.table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-
-.table thead th {
-  vertical-align: bottom;
-  border: 2px solid #dee2e6;
-}
-
-thead{
-  position: sticky;
-  top: 0;
-}
-.t-body{
-    border: 2px solid #dee2e6;
-    background-color: #f7e5ef;
-}
-
-.h-table{
-    color: #f4f4f4;
-    background-color: #735d78;
-}
-
-.t-body td:hover{
-    background-color: #ffc6ff;
-}
-.scroll{
-  height: 400px;
-  overflow-y: scroll;
-}
-.flex{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#list-member{
-  padding: 8px;
 }
 @media(max-width:768px) {
    .form-inline{
@@ -183,6 +72,11 @@ thead{
    .form-control {
     margin-right: 7px;
     margin-bottom: 7px;
+    width: 100%;
+  }
+  .btn{
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 </style>

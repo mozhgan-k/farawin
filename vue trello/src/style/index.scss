@@ -14,15 +14,6 @@
 
 @tailwind utilities;
 
-:root{
-  --primary-color:#915F78;
-  --secondary-color:#343a40;
-  --light-color:#e9ecef; 
-  --dark-color:#212529;
-  --muted-color:#706677;
-  --max-width:1100px;
-  }
-
 body{
   margin: 0;
   padding: 0;
@@ -59,29 +50,6 @@ hr {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-.container{
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 0 2rem;
-  overflow: hidden;
-}
-.add{
-  margin-left: auto;
-  color: var(--primary-color);
-  outline: 0;
-  border: none;
-
-  &:hover{
-    cursor: pointer;
-    color: #DA7474;
-  }
-}
-
-.border-rad{
-  border-radius: 5px;
-}
-
   textarea {
     overflow: auto;
     resize: vertical;
@@ -102,20 +70,6 @@ hr {
   .modal {
     width: 400px;
   }
-  
-    .add-card{
-      margin-left: 10px;
-      background-color: #eee4e1;
-      font-size: 14px;
-      padding: 7px;
-      outline: 0;
-      border: none;
-      cursor: pointer;
-      &:hover{
-        background-color:  #E6BEAE;
-        color:#fff;
-      }
-    }
 .error{
   width: 450px;
   height: 40px;
