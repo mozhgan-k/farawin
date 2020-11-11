@@ -3,7 +3,7 @@
     <div v-show="error" class="error flex items-center justify-center bg-red-700 rounded-md mt-8 mb-1">
       <p class="text-white" v-text="error"></p>
     </div>
-    <div class="login-container bg-white mt-12 p-8">
+    <div class="login-container bg-white mt-12 p-8 rounded-md">
       <div class="title flex justify-center">
       <h3 class="mb-3 text-purple-500 font-semibold">Welcome back to Farawin</h3>
       </div>

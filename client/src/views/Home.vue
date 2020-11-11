@@ -6,7 +6,7 @@
         <div class="drop-down relative inline-block">
           <button class="dropbtn"><i class="fa fa-caret-down ml-1 text-white"></i></button>
           <div class="content hidden absolute bg-gray-900 float-left rounded-md">
-            <a class="block ml-1 p-3 text-white hover:text-purple-400"><i class="fa fa-cog mr-1 text-base"></i>Setting</a>
+            <router-link to="/member-setting" class="block ml-1 p-3 text-white hover:text-purple-400"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
           </div>
         </div>
        </li>

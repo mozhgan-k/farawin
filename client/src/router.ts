@@ -5,6 +5,7 @@ import register from './views/register.vue'
 import board from './views/list1.vue'
 import mytask from './views/mytask.vue'
 import member from './views/members.vue'
+import memberSetting from './views/member-setting.vue'
 import { nextTick } from 'vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -37,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/members',
     name: 'member',
     component: member
+  },
+  {
+    path: '/member-setting',
+    name: 'member-setting',
+    component: memberSetting
   }
 ]
 const router = createRouter({
