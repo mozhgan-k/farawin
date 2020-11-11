@@ -3,7 +3,14 @@
  <div class="bg-gray-900 p-4 w-full sticky top-0">
      <ul class="flex text-white justify-around">
        <li><router-link to="/"><i class="fa fa-arrow-left text-lg hover:text-purple-400"></i></router-link></li>
-       <li><a class="font-semibold hover:text-purple-400"  v-text="user.username"></a></li>
+       <li><a class="font-semibold hover:text-purple-400"  v-text="user.username"></a>
+        <div class="drop-down relative inline-block">
+          <button class="dropbtn"><i class="fa fa-caret-down ml-1 text-white"></i></button>
+          <div class="content hidden absolute bg-gray-900 float-left rounded-md">
+            <a class="block ml-1 p-3 text-white hover:text-purple-400"><i class="fa fa-cog mr-1 text-base"></i>Setting</a>
+          </div>
+        </div>
+       </li>
        <li><a class="hover:text-purple-400" @click="openList=true"><i class="fa fa-plus text-lg"></i></a></li>
        <li><a @click="openM=true"><i class="fa fa-users text-lg hover:text-purple-400"></i></a></li>
      </ul>

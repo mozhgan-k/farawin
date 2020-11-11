@@ -80,6 +80,15 @@ hr {
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
 }
+
+.content{
+  min-width: 160px;
+  z-index: 1;
+}
+.drop-down:hover .content{
+  display: block;
+}
+
 @media(min-width: 620px){
   .m-container{
     display: grid;
