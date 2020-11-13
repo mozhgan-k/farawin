@@ -14,7 +14,7 @@ const insertUser = async (body) =>{
     return { success: false, error: "Password must be more than 8 letters" };
   }
   if (!body.email) {
-    return { success: false, error: "invalid email" };
+    return { success: false, error: "Invalid email" };
   }
   const findUser = await findone({username: body.username})
   if (findUser.success === false) {
