@@ -4,8 +4,8 @@
      <ul class="flex text-white justify-around">
        <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a>
         <div class="drop-down relative inline-block">
-          <button class="dropbtn"><i class="fa fa-caret-down ml-1 text-white"></i></button>
-          <div class="content hidden absolute bg-gray-900 float-left rounded-md">
+          <i class="fa fa-caret-down ml-1 text-white cursor-pointer" @click="show = !show"></i>
+          <div v-if="show" class="content absolute bg-gray-900 float-left rounded-md">
             <router-link to="/member-setting" class="block ml-1 p-3 text-white hover:text-purple-400"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
           </div>
         </div>
@@ -68,6 +68,7 @@ export default defineComponent({
     hazf: deItem
   },
   data: () => ({
+    show: false,
     user: {},
     openD: false,
     openC: false,
