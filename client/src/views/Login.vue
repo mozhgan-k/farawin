@@ -11,23 +11,28 @@
         <h4 class="m-0 text-purple-800 font-semibold">Login</h4>
       </div>
       <div class="l-body">
-        <form v-if="mode = 'login'" @submit.prevent="login()">
-          <div>
+        <form v-if="mode = 'login'" @submit.prevent="login()" class="content">
+            <div class="content relative mt-4 p-2">
               <input
                 v-autofocus
                 v-model="username"
                 type="text"
-                class="border border-purple-800 border-solid rounded-md text-base w-full p-3 border-opacity-50 mt-1 focus:bg-purple-100 outline-none"
-                placeholder="Username"
+                class="shadow-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1"
                 name="username"
-              />
-          </div>
-            <div class="flex items-center border border-purple-800 border-solid border-opacity-50 mt-3 mb-3 bg-white rounded-md w-full">
-              <input v-model="password" :type="fieldType" class="toggle w-full border-opacity-75 outline-none p-3 text-base focus:bg-purple-100 rounded-md bg-transparent"
-                placeholder="Password" name="password"/>
-                <a class="toggle text-sm" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-2"></i></a>
+                required/>
+                <div class="under absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-red-300"></div>
+                <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Username</label>
             </div>
-          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white p-3 relative hover:opacity-75 focus:outline-none" type="submit">
+            <div class="content relative mt-3 p-2">
+              <input v-model="password" :type="fieldType" class="toggle mt-3 text-gray-700 text-sm shadow-none border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent"
+                 name="password" required/>
+            <div class="under absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-red-300"></div>
+            <label class="border-none mb-2 ml-1 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Password</label>
+            </div>
+            <div class="flex justify-center items-center m-3 bg-purple-100 p-2">
+              <a class="toggle text-sm text-purple-800 ml-1" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-1"></i>Show password</a>
+            </div>
+          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white mt-3 p-3 relative hover:opacity-75 focus:outline-none" type="submit">
             <fw-loading v-if="loading" class="loading" />Login</button>
           <hr>
           <div class="flex justify-center text-base font-normal mt-3 hover:text-purple-900">
@@ -41,9 +46,10 @@
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
     .login-container{
       width: 450px;
+    }
       .is-loading {
      color:transparent;
   }
@@ -54,7 +60,28 @@
     bottom: 50%;
     transform: translate(50%, 50%);
   }
-    }
+  .content label{
+    bottom: 10px;
+  }
+  .content input:focus ~ label,
+  .content input:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 15px;
+    color: #553c9a;
+  }
+  .content .under::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: #6b46c1;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .content input:focus ~ .under::before,
+  .content input:valid ~ .under::before{
+    transform: scaleX(1);
+  }
   @media(max-width: 768px){
   .login-container{
   width: 300px;
