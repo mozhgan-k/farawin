@@ -80,6 +80,7 @@ export async function removeUser (user: {}) {
   } else {
     const flan = _users.value.indexOf(user)
     _users.value.splice(flan, 1)
+    debugger
   }
 }
 

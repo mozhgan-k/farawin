@@ -6,21 +6,20 @@ const {findone, insertUser, get, update, remove} = require("../models/users")
 
 const login = async (req, res) => {
     if (!req.body.username) {
-      res.status(400).json({ success: false, error: "missing username" });
+      res.status(400).json({ success: false, error: "Missing username" });
       return;
     }
     if (req.body.username.length < 3) {
-      res.status(400).json({ success: false, error: "invalid username" });
+      res.status(400).json({ success: false, error: "Invalid username" });
       return;
     }
     if (!req.body.pass || req.body.pass.length < 8) {
-      res.status(400).json({ success: false, error: "invalid pass" });
+      res.status(400).json({ success: false, error: "Invalid pass" });
       return;
     }
     const ress = await findone(req.body)
-    console.log(ress)
     if (ress.success===false) {
-      res.status(ress.status).json({success: false, error: 'User not found'})
+      res.status(400).json({success: false, error: 'User not found'})
     } else {
       const ok = await generateToken(ress._id);
       res.status(200).json({ member: ress, access_token: ok.access_token, refresh_token: ok.refresh_token });
@@ -56,7 +55,7 @@ const edit = async (req, res) => {
 const hazf = async (req, res) => {
   const ress = await remove({_id: ObjectId(req.body._id)})
   if (ress.success === false) {
-    res.status(ress.status).json( {success: false, error: ress.error} )
+    res.status(400).json( {success: false, error: 'Password was wrong!'} )
   } else {
     res.json(ress)
   }

@@ -23,7 +23,7 @@
               />
           </div>
             <div class="flex items-center border border-purple-800 border-solid border-opacity-50 mt-3 mb-3 bg-white rounded-md w-full">
-              <input v-model="password" :type="fieldType" class="w-full border-opacity-75 outline-none p-3 text-base focus:bg-purple-100 rounded-md bg-transparent"
+              <input v-model="password" :type="fieldType" class="toggle w-full border-opacity-75 outline-none p-3 text-base focus:bg-purple-100 rounded-md bg-transparent"
                 placeholder="Password" name="password"/>
                 <a class="toggle text-sm" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-2"></i></a>
             </div>
@@ -62,6 +62,9 @@
   }
   .title{
     font-size: 16px;
+  }
+  .toggle-c{
+    max-width: 75%;
   }
   }
 </style>
