@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="flex items-center justify-center bg-purple-200 p-1 border-t border-solid border-purple-300">
-          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none">Create</button>
+          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none" :class="{'disabled-button':disabled}">Create</button>
         </div>
         </form>
       </div>
@@ -33,6 +33,7 @@ import { insertList, board, error } from '../models/list'
 export default defineComponent({
   name: 'myModal',
   data: () => ({
+    disabled: false,
     listName: '',
     error: ''
   }),

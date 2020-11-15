@@ -3,8 +3,8 @@
      <div class="bg-gray-900 p-4 w-full sticky top-0">
       <ul class="flex text-white justify-around">
         <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a></li>
-        <li><router-link to="/"><i class="fa fa-th text-lg hover:text-purple-400"></i></router-link></li>
-        <li><router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-lg hover:text-purple-400"></i></router-link></li>
+        <li><router-link to="/"><i class="fa fa-home text-xl hover:text-purple-400"></i></router-link></li>
+        <li><router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-xl hover:text-purple-400"></i></router-link></li>
       </ul>
     </div>
     <div class="flex justify-center items-center">

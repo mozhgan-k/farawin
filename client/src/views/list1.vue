@@ -2,7 +2,6 @@
 <div>
  <div class="bg-gray-900 p-4 w-full sticky top-0">
      <ul class="flex text-white justify-around">
-       <li><router-link to="/"><i class="fa fa-arrow-left text-lg hover:text-purple-400"></i></router-link></li>
        <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a>
         <div class="drop-down relative inline-block">
           <i class="fa fa-caret-down ml-1 text-white cursor-pointer hover:text-purple-400" @click="show = !show"></i>
@@ -11,23 +10,25 @@
           </div>
         </div>
        </li>
-       <li><a class="hover:text-purple-400" @click="openList=true"><i class="fa fa-plus text-lg"></i></a></li>
-       <li><a @click="openM=true"><i class="fa fa-users text-lg hover:text-purple-400"></i></a></li>
+      <li><router-link to="/"><i class="fa fa-home text-xl hover:text-purple-400"></i></router-link></li>
+       <li><a class="hover:text-purple-400" @click="openList=true"><i class="fa fa-plus text-xl"></i></a></li>
+       <li><a @click="openM=true"><i class="fa fa-users text-xl hover:text-purple-400"></i></a></li>
+       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-xl hover:text-purple-400"></i></router-link>
      </ul>
  </div>
       <div class="m-container">
         <div v-for="lists in listsBoard" :key="lists._id">
           <ul class="todo bg-purple-200 m-6 text-purple-800 rounded-md h-auto">
             <li class="text-base m-1 p-1">
-              <span v-text="lists.name" class="inline-block text-lg font-semibold p-2"></span>
-              <div class="block float-right p-2">
+              <span v-text="lists.name" class="inline-block text-lg font-semibold pt-2"></span>
+              <div class="block float-right pt-2">
               <a @click="virayesh(lists)"><i class="fas fa-pencil-alt text-base mr-2 text-green-700"></i></a>
               <a @click="pak(lists)"><i class="fas fa-trash-alt text-base text-red-700"></i></a>
               </div>
             </li>
             <div v-for="task in tasks" :key="task._id">
             <div v-if="task.listId == lists._id">
-            <li class="bg-white text-blue-900 m-3 p-3 rounded cursor-pointer" @click="change(task)">
+            <li class="bg-white text-blue-900 m-2 p-2 rounded cursor-pointer" @click="change(task)">
               <div v-text="task.desc"></div>
             </li>
             </div>
@@ -142,6 +143,10 @@ export default defineComponent({
     },
     anqezi (anqezi: boolean) {
       this.openTask = anqezi
+    },
+    LogOut () {
+      localStorage.removeItem('accessToken')
+      localStorage.removeItem('refreshToken')
     }
   }
 })

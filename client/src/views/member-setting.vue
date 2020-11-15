@@ -1,4 +1,12 @@
 <template>
+<div>
+<div class="bg-gray-900 p-4 w-full sticky top-0">
+     <ul class="flex text-white justify-around">
+       <li><a><i class="fa fa-cog mr-1 text-xl hover:text-purple-400"></i></a></li>
+       <li><router-link to="/"><i class="fa fa-home text-xl hover:text-purple-400"></i></router-link></li>
+       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-xl hover:text-purple-400"></i></router-link>
+     </ul>
+    </div>
   <div class="flex flex-col items-center justify-center upload rounded-md bg-white mx-auto my-12">
     <div v-show="error" class="error flex items-center bg-red-700 justify-center rounded-md mt-8 mb-1">
       <p class="text-white" v-text="error"></p>
@@ -43,6 +51,7 @@
     <div class="overlay" v-if="openDelete" @click.self="openDelete=false">
        <delete-account v-if="openDelete" :deletUs= 'deletUs'/>
      </div>
+  </div>
   </div>
 </template>
 <style scoped>
@@ -117,6 +126,10 @@ export default defineComponent({
     remove () {
       this.deletUs = user.value
       this.openDelete = true
+    },
+    LogOut () {
+      localStorage.removeItem('accessToken')
+      localStorage.removeItem('refreshToken')
     }
   }
 })

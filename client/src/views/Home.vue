@@ -10,10 +10,10 @@
           </div>
         </div>
        </li>
-       <li><a @click="myTask()" class="hover:text-purple-400"><i class="fa fa-list-alt text-lg"></i></a></li>
-       <li><a @click="openC=true" type="button" class="hover:text-purple-400"><i class="fa fa-plus text-lg"></i></a></li>
-       <router-link v-if="user.role == 'admin'" to="/members"><i class="fa fa-users text-lg hover:text-purple-400"></i></router-link>
-       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-lg hover:text-purple-400"></i></router-link>
+       <li><a @click="myTask()" class="hover:text-purple-400"><i class="fa fa-list-alt text-xl"></i></a></li>
+       <li><a @click="openC=true" type="button" class="hover:text-purple-400"><i class="fa fa-plus text-xl"></i></a></li>
+       <router-link v-if="user.role == 'admin'" to="/members"><i class="fa fa-users text-xl hover:text-purple-400"></i></router-link>
+       <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-xl hover:text-purple-400"></i></router-link>
      </ul>
     </div>
   <section>

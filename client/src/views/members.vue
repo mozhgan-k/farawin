@@ -10,8 +10,8 @@
           </div>
         </div>
         </li>
-        <li><router-link to="/"><i class="fa fa-th text-lg hover:text-purple-400"></i></router-link></li>
-        <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-lg hover:text-purple-400"></i></router-link>
+        <li><router-link to="/"><i class="fa fa-home text-xl hover:text-purple-400"></i></router-link></li>
+        <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-xl hover:text-purple-400"></i></router-link>
       </ul>
      </div>
      <div class="flex flex-col items-center p-3">

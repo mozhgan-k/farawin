@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="flex items-center justify-center bg-purple-200 p-1 border-t border-solid border-purple-300">
-          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none">Create</button>
+          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none" :class="{'disabled-button': disabled}">Create</button>
         </div>
         </form>
       </div>
@@ -37,6 +37,7 @@ import { insertboard, success, error } from '../models/board'
 export default defineComponent({
   name: 'addBoard',
   data: () => ({
+    disabled: false,
     boardName: '',
     boardDesc: '',
     error: ''
@@ -47,6 +48,7 @@ export default defineComponent({
         if (error.value.length > 2) {
           this.error = error.value
         } else {
+          this.disabled = true
           this.$emit('aclose', false)
         }
       })
