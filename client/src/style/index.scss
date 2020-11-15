@@ -86,6 +86,29 @@ hr {
   z-index: 1;
 }
 
+.input-content label{
+  bottom: 10px;
+}
+.input-content input:focus ~ label,
+.input-content input:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #702459;
+}
+.input-content .underline::before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: #b83280;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.input-content input:focus ~ .underline::before,
+.input-content input:valid ~ .underline::before{
+  transform: scaleX(1);
+}
+
 @media(min-width: 620px){
   .m-container{
     display: grid;

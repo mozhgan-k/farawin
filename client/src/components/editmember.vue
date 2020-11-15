@@ -7,18 +7,24 @@
             <h4 class="text-purple-900">Edit Member</h4>
         </div>
         <div class="relative p-4 bg-purple-100">
-          <div>
-          <input type="username" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Username" v-autofocus v-model="username">
+          <div class="input-content relative mt-4 p-2">
+          <input type="username" class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent" v-autofocus v-model="username" required>
+          <div class="underline absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-pink-200"></div>
+          <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Username</label>
           </div>
-          <div>
-          <input type="email" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Email" v-model="email">
+          <div class="input-content relative mt-4 p-2">
+          <input type="email" class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full bg-transparent mt-3" v-model="email" required>
+          <div class="underline absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-pink-200"></div>
+          <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">E-mail</label>
           </div>
-          <div>
-          <input type="text" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Password" v-model="password">
+          <div class="input-content relative mt-4 p-2">
+          <input type="text" class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full bg-transparent mt-3" v-model="password" required>
+          <div class="underline absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-pink-200"></div>
+          <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Password</label>
           </div>
         </div>
-        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
-          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none" @click="editUser()">Save</button>
+        <div class="flex items-center justify-center bg-purple-200 p-1 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none" @click="editUser()">Save</button>
         </div>
       </div>
     </div>

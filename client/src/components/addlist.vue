@@ -11,12 +11,15 @@
         </div>
         <form @click.prevent="created()">
         <div class="relative p-4 bg-purple-100">
-          <div>
-          <input type="text" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="List Name" v-model="listName" v-autofocus>
+          <div class="input-content relative mt-4 p-2">
+          <input type="text" class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent"
+          v-model="listName" v-autofocus required>
+          <div class="underline absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-pink-200"></div>
+          <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">List Name</label>
           </div>
         </div>
-        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
-          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none">Create</button>
+        <div class="flex items-center justify-center bg-purple-200 p-1 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none">Create</button>
         </div>
         </form>
       </div>
@@ -30,7 +33,6 @@ import { insertList, board, error } from '../models/list'
 export default defineComponent({
   name: 'myModal',
   data: () => ({
-    show: false,
     listName: '',
     error: ''
   }),

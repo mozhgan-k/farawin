@@ -17,14 +17,14 @@
                 v-autofocus
                 v-model="username"
                 type="text"
-                class="shadow-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1"
+                class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1"
                 name="username"
                 required/>
                 <div class="under absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-red-300"></div>
                 <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Username</label>
             </div>
             <div class="content relative mt-3 p-2">
-              <input v-model="password" :type="fieldType" class="toggle mt-3 text-gray-700 text-sm shadow-none border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent"
+              <input v-model="password" :type="fieldType" class="toggle outline-none mt-3 text-gray-700 text-sm shadow-none border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent"
                  name="password" required/>
             <div class="under absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-red-300"></div>
             <label class="border-none mb-2 ml-1 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Password</label>

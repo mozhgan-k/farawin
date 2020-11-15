@@ -11,17 +11,19 @@
         </div>
         <form @submit.prevent="created()">
         <div class="relative p-4 bg-purple-100">
-          <div>
-          <input type="text" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200"
-          v-model="boardName" placeholder="Board Name" v-autofocus>
+          <div class="input-content relative mt-4 p-2">
+          <input type="text" class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent"
+          v-model="boardName" v-autofocus required>
+          <div class="underline absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-pink-200"></div>
+          <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">Board Name</label>
           </div>
           <div>
-          <textarea name="desc" class="outline-none rounded-md w-full text-base p-3 mt-3 placeholder-purple-400 focus:bg-purple-200"
+          <textarea name="desc" class="outline-none rounded-md w-full text-gray-700 text-base p-3 mt-3 placeholder-purple-400 focus:bg-pink-200"
           v-model="boardDesc" placeholder="Description"></textarea>
           </div>
         </div>
-        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
-          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none">Create</button>
+        <div class="flex items-center justify-center bg-purple-200 p-1 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none">Create</button>
         </div>
         </form>
       </div>

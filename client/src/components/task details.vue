@@ -14,22 +14,24 @@
           <div v-if="!show">
            <p v-text="editTask.desc"></p>
           </div>
-          <div v-if="show">
-           <textarea name="desc" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Your Task" v-model="vDesc"></textarea>
+          <div v-if="show" class="input-content relative mt-4 p-2">
+           <input name="name" class="shadow-none outline-none text-sm text-gray-700 border-none border-b border-purple-800 border-solid text-base w-full mt-1 bg-transparent" v-model="vName"/>
+           <div class="underline absolute left-0 outline-none bottom-0 h-1 w-full shadow-none bg-pink-200"></div>
+          <label class="border-none ml-1 mb-2 opacity-75 text-sm outline-none absolute left-0 text-purple-600 pointer-events-none transition-all duration-300 ease-in-out">User Name</label>
           </div>
           <div v-if="show">
-           <input name="name" class="outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200" placeholder="Your Name" v-model="vName"/>
+           <textarea name="desc" class="outline-none rounded-md w-full text-gray-700 text-base p-3 mt-3 placeholder-purple-400 focus:bg-pink-200" placeholder="Your Task" v-model="vDesc"></textarea>
           </div>
           <div v-if="!show" class="mt-3">
             <i class="fa fa-paperclip m-1 text-purple-500"></i><small v-text="editTask.user" class="text-base text-purple-600"></small>
           </div>
         </div>
-        <div class="flex items-center justify-around bg-purple-200 p-3 border-t border-solid border-purple-300">
+        <div class="flex items-center justify-around bg-purple-200 p-2 border-t border-solid border-purple-300">
          <div>
           <a @click="show=!show" v-if="!show"><i class="fas fa-pencil-alt mr-3 text-green-700"></i></a>
          </div>
          <div v-if="show">
-           <button class="w-full rounded-md bg-purple-900 text-white p-3 hover:opacity-75 focus:outline-none" @click="editTasks()">Save</button>
+           <button class="w-full rounded-md bg-purple-900 text-white p-2 hover:opacity-75 focus:outline-none" @click="editTasks()">Save</button>
          </div>
          <div>
           <a v-if="!show" @click="delTask=true"><i class="fa fa-times text-red-700"></i></a>

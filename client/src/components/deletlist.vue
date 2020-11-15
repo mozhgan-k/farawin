@@ -6,8 +6,8 @@
         <div class="relative p-4 bg-purple-100">
           <h5>Are you sure you want to delete this item?</h5>
         </div>
-        <div class="flex items-center justify-center bg-purple-200 p-3 border-t border-solid border-purple-300">
-          <button class="rounded-md bg-purple-900 w-full text-white p-3 hover:opacity-75 focus:outline-none" @click="hazf()">Delete</button>
+        <div class="flex items-center justify-center bg-purple-200 p-1 border-t border-solid border-purple-300">
+          <button class="rounded-md bg-purple-900 w-full text-white p-2 hover:opacity-75 focus:outline-none" @click="hazf()">Delete</button>
         </div>
       </div>
     </div>

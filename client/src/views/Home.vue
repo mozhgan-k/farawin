@@ -4,9 +4,9 @@
      <ul class="flex text-white justify-around">
        <li><a class="font-semibold hover:text-purple-400" v-text="user.username"></a>
         <div class="drop-down relative inline-block">
-          <i class="fa fa-caret-down ml-1 text-white cursor-pointer" @click="show = !show"></i>
+          <i class="fa fa-caret-down ml-1 text-white cursor-pointer hover:text-purple-400" @click="show = !show"></i>
           <div v-if="show" class="content absolute bg-gray-900 float-left rounded-md">
-            <router-link to="/member-setting" class="block ml-1 p-3 text-white hover:text-purple-400"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
+            <router-link to="/member-setting" class="block ml-1 p-3 text-white hover:bg-purple-800 text-white"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
           </div>
         </div>
        </li>
@@ -20,14 +20,14 @@
         <div class="m-container">
           <div class="card font-semibold bg-pink-200 h-auto m-12 p-2 rounded-md" v-for="board in boards" :key="board._id">
             <a @click="list(board)">
-              <h4 class="inline-block text-purple-900 text-base" v-text="board.name"></h4>
+              <h4 class="inline-block text-purple-900 text-lg" v-text="board.name"></h4>
             </a>
            <div class="float-right">
-              <a @click="virayesh(board)"><i class="fas fa-pencil-alt text-sm mr-2 text-green-700"></i></a>
-              <a @click="pak(board)"><i class="fas fa-trash-alt text-sm text-red-700"></i></a>
+              <a @click="virayesh(board)"><i class="fas fa-pencil-alt text-base mr-2 text-green-700"></i></a>
+              <a @click="pak(board)"><i class="fas fa-trash-alt text-base text-red-700"></i></a>
            </div>
             <div>
-              <p class="flex flex-col mt-2 mb-2 bg-white text-blue-900 text-sm p-2" v-text="board.desc"></p>
+              <p class="flex flex-col mt-2 mb-2 bg-white text-blue-900 text-base p-2 rounded" v-text="board.desc"></p>
             </div>
           </div>
        </div>
