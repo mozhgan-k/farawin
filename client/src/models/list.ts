@@ -4,6 +4,15 @@ const _board = ref()
 const _err = ref('')
 const _list = ref()
 
+function check (list: any) {
+  if (!list.name) {
+    _err.value = 'Missing list name'
+}
+if (list.name.length <= 3) {
+  _err.value = 'Name must be more than 3 letters'
+}
+}
+
 export async function findBoard (id: {}) {
   await get(`/list/${id}`).then(res => {
     if (res.success === false) {
@@ -18,6 +27,10 @@ export async function findBoard (id: {}) {
 export async function insertList (list: any) {
   await post('/list', list).then(res => {
     _err.value = ''
+    check(list)
+    if (_err.value.length > 1) {
+    return
+    }
     if (res.success === false) {
       _err.value = res.error
     } else {
@@ -37,6 +50,10 @@ export async function insertList (list: any) {
 export async function updateList (oldList: {}, list: {}) {
   const editList = await update('/list', list)
   _err.value = ''
+  check(list)
+  if (_err.value.length > 1) {
+    return
+  }
   if (editList.success === false) {
     _err.value = editList.error
   } else {

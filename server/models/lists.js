@@ -4,11 +4,9 @@ const { insertOne, updateOne, findAll, deleteOne } = require("../db");
 
 const insert = async (body) => {
     if (!body.name) {
-        
         return {success: false, error: "Missing list name"};
     }
     if (body.name.length <= 3) {
-        console.log('man injam')
         return {success: false, error: "Name must be more than 3 letters"};
     }
     const data = { name: body.name, boardId: body.boardId }

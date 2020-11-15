@@ -6,6 +6,15 @@ const _task = ref()
 const _err = ref('')
 const _taskUser = ref()
 
+function check (task: any) {
+  if (!task.desc) {
+    _err.value = 'Missing description'
+  }
+  if (task.desc.length <= 6) {
+        _err.value = 'Description must be more tham 6 letters'
+  }
+}
+
 export async function getTask (boardId: any) {
   const taskval = await get(`/task/${boardId}`)
   _task.value = taskval
@@ -20,6 +29,10 @@ export async function usersTask () {
 export async function insertTask (task: any) {
   const taskcont = await post('/task', task)
   _err.value = ''
+  check(task)
+  if (_err.value.length > 1) {
+    return
+  }
   if (taskcont.success === false) {
     _err.value = taskcont.error
   } else {
@@ -36,6 +49,10 @@ export async function insertTask (task: any) {
 export async function updateTask (oldTask: {}, task: {}) {
   const editTask = await update('/task', task)
   _err.value = ''
+  check(task)
+  if (_err.value.length > 1) {
+    return
+  }
   if (editTask.success === false) {
     _err.value = editTask.error
   } else {
