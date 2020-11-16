@@ -10,7 +10,7 @@ function check (board: any) {
     _err.value = 'Missing name'
   }
   if (board.name.length <= 3) {
-    _err.value =  'Name must be more than 3 letters'
+    _err.value = 'Name must be more than 3 letters'
   }
   if (!board.desc || board.desc.length < 8) {
     _err.value = 'Description must be more than 8 letters'
@@ -31,9 +31,9 @@ export async function insertboard (board: {}) {
   await post('/board', board).then(res => {
     _err.value = ''
     check(board)
-  if (_err.value.length > 1) {
-    return
-  }
+    if (_err.value.length > 1) {
+      return
+    }
     if (res.success === false) {
       _err.value = res.error
     } else {

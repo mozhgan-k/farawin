@@ -11,7 +11,7 @@ function check (task: any) {
     _err.value = 'Missing description'
   }
   if (task.desc.length <= 6) {
-        _err.value = 'Description must be more tham 6 letters'
+    _err.value = 'Description must be more tham 6 letters'
   }
 }
 

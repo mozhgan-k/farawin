@@ -7,10 +7,10 @@ const _list = ref()
 function check (list: any) {
   if (!list.name) {
     _err.value = 'Missing list name'
-}
-if (list.name.length <= 3) {
-  _err.value = 'Name must be more than 3 letters'
-}
+  }
+  if (list.name.length <= 3) {
+    _err.value = 'Name must be more than 3 letters'
+  }
 }
 
 export async function findBoard (id: {}) {
@@ -29,7 +29,7 @@ export async function insertList (list: any) {
     _err.value = ''
     check(list)
     if (_err.value.length > 1) {
-    return
+      return
     }
     if (res.success === false) {
       _err.value = res.error

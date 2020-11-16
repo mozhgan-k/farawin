@@ -1,8 +1,7 @@
 <template>
 <div>
 <div class="bg-gray-900 p-4 w-full sticky top-0">
-     <ul class="flex text-white justify-around">
-       <li><a><i class="fa fa-cog mr-1 text-xl hover:text-purple-400"></i></a></li>
+     <ul class="flex text-white justify-evenly">
        <li><router-link to="/"><i class="fa fa-home text-xl hover:text-purple-400"></i></router-link></li>
        <router-link to="/login" @click="LogOut()"><i class="fa fa-power-off text-xl hover:text-purple-400"></i></router-link>
      </ul>
@@ -17,13 +16,14 @@
     <div class="resp p-4">
       <span class="text-purple-900 text-2xl font-semibold"><i class="fa fa-cog mr-1 text-xl"></i>Setting</span>
       <div class="mt-3">
-      <img class="w-20 h-20" src="https://img.icons8.com/fluent/96/000000/user-female-circle.png"/>
+      <img class="w-20 h-20" src=""/>
       </div>
       <div class="resp mt-4">
         <span class="text-purple-800 text-lg font-semibold">Set Profile Photo</span>
-        <form>
-         <input type="file" id="myFile" name="filename" class="mt-2 p-1 rounded-md photo focus:bg-purple-200">
+        <form action="../../server/public/upload" method="POST" enctype="multipart/form-data">
+         <input type="file" id="myFile" name="myImg" class="mt-2 p-1 rounded-md photo focus:bg-purple-200">
          <input type="submit" value="Submit" class="ml-2 mb-1 rounded-md bg-purple-900 text-white p-2 text-sm relative hover:opacity-75 cursor-pointer focus:outline-none">
+         <small class="block text-xs text-red-700 my-1">The file size should not exceed 3MB</small>
         </form>
       </div>
       <div class="mt-4 flex flex-col items-center justify-center w-full">
