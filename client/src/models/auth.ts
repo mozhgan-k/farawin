@@ -119,16 +119,14 @@ export async function addUser (member: {}) {
   }
 }
 
-export async function checkUser () {
-  get('/person').then(res => {
-    if (res.error) {
-      _err.value = res.error
-      return
-    }
-    debugger
-    _user.value = res
-  })
-}
+// export async function checkUser () {
+//  await get('/person')
+//     if (res.error) {
+//       _err.value = res.error
+//       return
+//     }
+//     _user.value = res
+//   }
 
 export const user = readonly(_user)
 export const error = readonly(_err)
