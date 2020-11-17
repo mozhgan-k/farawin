@@ -6,7 +6,7 @@
         <div class="drop-down relative inline-block">
           <i class="fa fa-caret-down ml-1 text-white cursor-pointer hover:text-purple-400" @click="show = !show"></i>
           <div v-if="show" class="content absolute bg-gray-900 float-left rounded-md">
-            <router-link to="/member-setting" class="block ml-1 p-3 text-white hover:bg-purple-800 text-white"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
+            <router-link to="/member-setting" class="block rounded-md ml-1 p-3 text-white hover:bg-purple-800 text-white"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
           </div>
         </div>
         </li>

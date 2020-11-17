@@ -9,27 +9,28 @@ const { isAuth } = require("./authMiddleware");
 router.post("/login", user.login);
 router.post("/register", user.register);
 router.post("/refresh-token", user.refreshToken);
-router.get("/user", user.users);
-router.put("/user", user.edit);
-router.delete("/user", user.hazf);
+router.get("/user", isAuth, user.users);
+router.get("/person", isAuth, user.getPerson)
+router.put("/user", isAuth, user.edit);
+router.delete("/user", isAuth, user.hazf);
 
 //board
-router.post("/board", board.create);
-router.put("/board", board.update);
+router.post("/board", isAuth, board.create);
+router.put("/board", isAuth, board.update);
 router.get("/board",isAuth, board.boardList);
-router.delete("/board", board.remove);
+router.delete("/board", isAuth, board.remove);
 
 //list
-router.post("/list", list.create);
-router.put("/list", list.update);
-router.get("/list/:id", list.listslist);
-router.delete("/list", list.remove);
+router.post("/list", isAuth, list.create);
+router.put("/list", isAuth, list.update);
+router.get("/list/:id", isAuth, list.listslist);
+router.delete("/list", isAuth, list.remove);
 
 //task
-router.post("/task", task.create);
-router.put("/task", task.update);
-router.get("/task/:id", task.taskslist);
-router.delete("/task", task.remove);
-router.get("/tasks/:user", task.TasksUser);
+router.post("/task", isAuth, task.create);
+router.put("/task", isAuth, task.update);
+router.get("/task/:id", isAuth, task.taskslist);
+router.delete("/task", isAuth, task.remove);
+router.get("/tasks/:user", isAuth, task.TasksUser);
 
 module.exports = router;

@@ -6,7 +6,7 @@
         <div class="drop-down relative inline-block">
           <i class="fa fa-caret-down ml-1 text-white cursor-pointer hover:text-purple-400" @click="show = !show"></i>
           <div v-if="show" class="content absolute bg-gray-900 float-left rounded-md">
-            <router-link to="/member-setting" class="block ml-1 p-3 text-white hover:bg-purple-800 text-white"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
+            <router-link to="/member-setting" class="block ml-1 rounded-md p-3 text-white hover:bg-purple-800 text-white"><i class="fa fa-cog mr-1 text-base"></i>Setting</router-link>
           </div>
         </div>
        </li>
@@ -59,7 +59,7 @@ import deItem from '../components/alert.vue'
 import { findboard, board, error } from '../models/board'
 import { findBoard } from '../models/list'
 import { getTask, usersTask } from '../models/task'
-import { user } from '../models/auth'
+import { checkUser, user } from '../models/auth'
 export default defineComponent({
   name: 'home',
   components: {
@@ -78,6 +78,9 @@ export default defineComponent({
     eboard: {}
   }),
   created () {
+    checkUser().then(() => {
+      this.user = user.value
+    })
     findboard()
       .then(() => {
         if (error.value) {
@@ -87,7 +90,6 @@ export default defineComponent({
           this.boards = board.value
         }
       })
-    this.user = user.value
   },
   methods: {
     pak (board: {}) {

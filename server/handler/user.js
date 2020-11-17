@@ -2,7 +2,7 @@
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
 const { getInstance } = require("../db");
-const {findone, insertUser, get, update, remove} = require("../models/users")
+const {findone, insertUser, get, update, remove, userToken} = require("../models/users")
 
 const login = async (req, res) => {
     if (!req.body.username) {
@@ -78,10 +78,6 @@ const refreshToken = async (req, res) => {
   }
 };
 
-const check = (req, res) => {
-  res.json({ success: true });
-};
-
 const generateToken = async (userID) => {
   const accessToken = jwt.sign({ id: userID }, "mozhgan", { expiresIn: "1d" });
   const rToken = jwt.sign({ id: userID }, "mozhganToken", { expiresIn: "10d" });
@@ -98,4 +94,14 @@ const generateToken = async (userID) => {
   return { success: true, access_token: accessToken, refresh_token: rToken };
 };
 
-module.exports = { login, register, refreshToken, check, users, edit, hazf };
+const getPerson = async (req,res) => {
+  const token = JSON.parse(req.headers.access_token)
+  const ress = await userToken(token)
+  if (ress.success == false) {
+    res.status(400).json({error: "User not found"})
+  } else {
+    res.json(ress)
+  }
+}
+
+module.exports = { login, register, refreshToken, users, edit, hazf, getPerson };

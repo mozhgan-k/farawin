@@ -1,6 +1,7 @@
 const { insertOne, updateOne, findAll, deleteOne, findOne } = require ("../db");
 const { ObjectId } = require("mongodb");
 const user = require("../handler/user");
+const jwt = require("jsonwebtoken");
 
 const insertUser = async (body) =>{
   try{
@@ -79,4 +80,10 @@ try {
   return { success: false, error: 'User not found'}
   }
 }
-module.exports = {findone, insertUser, update, get, remove}
+const userToken = async (token) => {
+  const decoded = jwt.verify(token, "mozhgan");
+  const user = await findOne('users',{_id: ObjectId(decoded.id)})
+  return user
+}
+
+module.exports = {findone, insertUser, update, get, remove, userToken}

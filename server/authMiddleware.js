@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const check = (req, res, next) => {
   try {
     const token = JSON.parse(req.headers.access_token);
-    console.log(token)
     if (!token) {
       console.error("token not found");
       res.status(401).json({ success: false });

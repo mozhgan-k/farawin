@@ -14,7 +14,7 @@ function check (user: any) {
   if (user.username.length < 3) {
     _err.value = 'Username must be more than 3 letters'
   }
-  if (!user.pass || user.pass.length < 8) {
+  if (user.pass.length < 8) {
     _err.value = 'Password must be more than 8 letters'
   }
   if (!user.email) {
@@ -80,7 +80,6 @@ export async function removeUser (user: {}) {
   } else {
     const flan = _users.value.indexOf(user)
     _users.value.splice(flan, 1)
-    debugger
   }
 }
 
@@ -118,6 +117,17 @@ export async function addUser (member: {}) {
       }
     })
   }
+}
+
+export async function checkUser () {
+  get('/person').then(res => {
+    if (res.error) {
+      _err.value = res.error
+      return
+    }
+    debugger
+    _user.value = res
+  })
 }
 
 export const user = readonly(_user)
