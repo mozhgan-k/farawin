@@ -18,6 +18,9 @@
     </div>
   <section>
         <div class="m-container">
+          <div v-show="error" class="flex items-center justify-center bg-red-700 rounded-md mt-8 mb-1 error">
+          <p class="text-white" v-text="error"></p>
+          </div>
           <div class="card font-semibold bg-pink-200 h-auto m-12 p-2 rounded-md" v-for="board in boards" :key="board._id">
             <a @click="list(board)">
               <h4 class="inline-block text-purple-900 text-lg" v-text="board.name"></h4>
@@ -75,7 +78,8 @@ export default defineComponent({
     openE: false,
     boards: {},
     dboard: {},
-    eboard: {}
+    eboard: {},
+    error: ''
   }),
   created () {
     checkUser().then(() => {
@@ -83,9 +87,8 @@ export default defineComponent({
     })
     findboard()
       .then(() => {
-        if (error.value) {
-          console.log(error.value)
-          alert('board not found')
+        if (error.value.length > 2) {
+          this.error = error.value
         } else {
           this.boards = board.value
         }

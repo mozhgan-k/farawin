@@ -4,10 +4,13 @@
       <p class="text-white" v-text="error"></p>
     </div>
     <div class="login-container bg-white mt-12 p-8 rounded-md">
-      <div class="title flex justify-center">
+      <div class="img flex flex-col justify-center items-center">
+        <img src="../img/pixeltrue-welcome-1.svg" class="w-3/4">
+      </div>
+      <div class="title flex justify-center hidden">
       <h3 class="mb-3 text-purple-500 font-semibold">Welcome back to Farawin</h3>
       </div>
-      <div class="l-title flex justify-center">
+      <div class="l-title flex justify-center hidden">
         <h4 class="m-0 text-purple-800 font-semibold">Login</h4>
       </div>
       <div class="l-body">
@@ -33,7 +36,7 @@
               <a class="toggle text-sm text-purple-800 ml-1" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-1"></i>Show password</a>
             </div>
           <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white mt-3 p-3 relative hover:opacity-75 focus:outline-none" type="submit">
-            <fw-loading v-if="loading" class="loading" />Login</button>
+            <fw-loading v-if="loading" class="loading" />Log In</button>
           <hr>
           <div class="flex justify-center text-base font-normal mt-3 hover:text-purple-900">
             <router-link to="/register">
@@ -89,9 +92,13 @@
   }
   .title{
     font-size: 16px;
+    display: flex;
   }
-  .toggle-c{
-    max-width: 75%;
+  .l-title{
+    display: flex;
+  }
+  .img{
+    display: none;
   }
   }
 </style>
