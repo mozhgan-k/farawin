@@ -15,19 +15,18 @@
     </div>
     <div class="resp p-4">
       <span class="text-purple-900 text-2xl font-semibold"><i class="fa fa-cog mr-1 text-xl"></i>Setting</span>
-      <div class="mt-3">
+      <!-- <div class="mt-3">
       <img class="w-20 h-20" src=""/>
-      </div>
-      <div class="resp mt-4">
+      </div> -->
+      <!-- <div class="resp mt-4">
         <span class="text-purple-800 text-lg font-semibold">Set Profile Photo</span>
         <form action="../../server/public/upload" method="POST" enctype="multipart/form-data">
          <input type="file" id="myFile" name="myImg" class="mt-2 p-1 rounded-md photo focus:bg-purple-200">
          <input type="submit" value="Submit" class="ml-2 mb-1 rounded-md bg-purple-900 text-white p-2 text-sm relative hover:opacity-75 cursor-pointer focus:outline-none">
          <small class="block text-xs text-red-700 my-1">The file size should not exceed 3MB</small>
         </form>
-      </div>
+      </div> -->
       <div class="mt-4 flex flex-col items-center justify-center w-full">
-      <span class="text-purple-800 mb-3 text-lg font-semibold">Account</span>
       <form @submit.prevent="editUser()" class="resp w-full">
         <input type="text" placeholder="Name" v-model="username" class="res mt-3 border border-purple-800 border-solid border-opacity-25 outline-none rounded-md w-full text-base p-3 placeholder-purple-400 focus:bg-purple-200">
         <input type="text" placeholder="E-mail" v-model="email" class="res border border-purple-800 border-solid border-opacity-25 outline-none rounded-md w-full mt-3 text-base p-3 placeholder-purple-400 focus:bg-purple-200">
@@ -37,13 +36,12 @@
           placeholder="Password" name="password"/>
           <a class="toggle text-sm" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-2"></i></a>
          </div>
-         <hr class="mt-3">
          <div class="resp">
          <button class="rounded-md mt-4 bg-purple-900 text-white p-3 relative hover:opacity-75 focus:outline-none">Save Changes</button>
          </div>
          <hr>
          <div class="resp mt-4">
-         <a class="text-red-600 bg-gray-200 p-2 font-medium rounded-md" @click="remove()">Delete account</a>
+         <a class="text-red-600 bg-gray-200 p-2 font-medium rounded-md hover:opacity-75" @click="remove()">Delete account</a>
          </div>
       </form>
       </div>
@@ -69,9 +67,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
-    .photo{
-      width: 70%;
     }
   }
   @media (min-width: 620px) {
