@@ -2,7 +2,8 @@
 const board = require("../models/boards");
 const create = async (req, res) => {
   try {
-    const resp = await board.insert(req.body);
+    const token = JSON.parse(req.headers.access_token)
+    const resp = await board.insert(req.body, token);
     res.json(resp);
   } catch (err) {
     res.status(500).json({ success: false, error: 'Board not created' });
@@ -18,7 +19,8 @@ const update = async (req, res) => {
 };
 const boardList = async (req, res) => {
   try {
-    const resp = await board.get(req.body);
+    const token = JSON.parse(req.headers.access_token)
+    const resp = await board.get(token);
     res.json(resp);
   } catch (err) {
     res.status(500).json({ success: false, error: 'Boards not found' });

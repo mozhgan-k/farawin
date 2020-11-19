@@ -1,7 +1,8 @@
 "use strict";
 const { ObjectID } = require("mongodb");
 const { insertOne, updateOne, findAll, deleteOne, findOne } = require("../db");
-const insert = async (body) => {
+const { userToken } = require("./users");
+const insert = async (body, token ) => {
   if (!body.name) {
     return { success: false, error: "Missing name" };
   }
@@ -11,7 +12,8 @@ const insert = async (body) => {
   if (!body.desc || body.desc.length < 8) {
     return { success: false, error: "Description must be more than 8 letters" };
   }
-  const res = await insertOne("board", { name: body.name, desc: body.desc });
+  const user = await userToken(token)
+  const res = await insertOne("board", { name: body.name, desc: body.desc, userID: user._id });
   return { success: true, boardID: res.insertedId };
 };
 
@@ -44,12 +46,16 @@ const getBoard = async (id) => {
   return res
 };
 
-const get = async (body) => {
-  const res = await findAll("board",{});
-  if (!res) {
-    return { success: false, error: "Board not found" };
+const get = async (token) => {
+  const user = await userToken(token)
+  if (user.role == 'admin') {
+    console.log('i am admin')
+    const res = await findAll("board",{});
+    return { success: true, board: res };
   }
-  return { success: true, board: res };
+  console.log('i am not admin :(')
+  const res = await findAll("board",{userID: user._id});
+    return { success: true, board: res };
 };
 
 const remove = async (body) => {
