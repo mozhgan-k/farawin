@@ -35,7 +35,7 @@
             <div class="flex justify-center items-center m-3 bg-purple-100 p-2">
               <a class="toggle text-sm text-purple-800 ml-1" @click="switchField()"><i class="fa fa-eye text-purple-900 mr-1"></i>Show password</a>
             </div>
-          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white mt-3 p-3 relative hover:opacity-75 focus:outline-none" type="submit">
+          <button :class="{'is-loading': loading}" :disabled="loading" class="rounded-md bg-purple-900 w-full text-white p-3 relative hover:opacity-75 focus:outline-none" type="submit">
             <fw-loading v-if="loading" class="loading" />Log In</button>
           <hr>
           <div class="flex justify-center text-base font-normal mt-3 hover:text-purple-900">
