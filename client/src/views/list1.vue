@@ -77,7 +77,7 @@ import members from '../components/boardmember.vue'
 import alert from '../components/deletlist.vue'
 import { board, list } from '../models/list'
 import { getTask, insertTask, task } from '../models/task'
-import { user } from '../models/auth'
+import { checkUser, user } from '../models/auth'
 export default defineComponent({
   name: 'navber',
   components: {
@@ -105,9 +105,11 @@ export default defineComponent({
     show: false
   }),
   created () {
+    checkUser().then(() => {
+      this.user = user.value
+    })
     this.listsBoard = list.value
     this.tasks = task
-    this.user = user.value
   },
   methods: {
     pak (lists: {}) {

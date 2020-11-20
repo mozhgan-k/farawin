@@ -90,7 +90,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import editM from '../components/editmember.vue'
-import { users, user, addUser, register, error } from '../models/auth'
+import { checkUser, users, user, addUser, register, error } from '../models/auth'
 import remove from '../components/deletMember.vue'
 export default defineComponent({
   name: 'members',
@@ -112,8 +112,10 @@ export default defineComponent({
     error: ''
   }),
   created () {
+    checkUser().then(() => {
+      this.user = user.value
+    })
     this.users = users.value
-    this.user = user.value
   },
   methods: {
     editMember (user: {}) {

@@ -78,7 +78,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import deleteAccount from '../components/delete-account.vue'
-import { updateuser, user, error } from '../models/auth'
+import { checkUser, updateuser, user, error } from '../models/auth'
 export default defineComponent({
   components: {
     deleteAccount: deleteAccount
@@ -92,8 +92,14 @@ export default defineComponent({
     password2: '',
     success: '',
     openDelete: false,
-    deletUs: {}
+    deletUs: {},
+    user: {}
   }),
+  created () {
+    checkUser().then(() => {
+      this.user = user.value
+    })
+  },
   mounted () {
     const oldUser = user.value
     this.username = oldUser.username

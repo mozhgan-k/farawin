@@ -61,7 +61,7 @@
 import { defineComponent } from 'vue'
 import details from '../components/task details.vue'
 import { taskUser } from '../models/task'
-import { user } from '../models/auth'
+import { checkUser, user } from '../models/auth'
 export default defineComponent({
   name: 'detail',
   components: {
@@ -74,8 +74,10 @@ export default defineComponent({
     show: false
   }),
   created () {
+    checkUser().then(() => {
+      this.user = user.value
+    })
     this.tasks = taskUser.value
-    this.user = user.value
   },
   LogOut () {
     localStorage.removeItem('accessToken')
