@@ -10,7 +10,8 @@ const insert = async (body) => {
         return { success: false, error: "Description must be more tham 6 letters"};
     }
     const user = await findone({username: body.user})
-    if (!user) {
+    console.log('user',user)
+    if (user.status == 403) {
         return { success: false, error: "User not found"};
     }else {
     const res = await insertOne("task", {desc: body.desc, listId:body.listId, user: body.user, boardId: body.boardId });

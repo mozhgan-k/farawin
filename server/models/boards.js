@@ -1,6 +1,6 @@
 "use strict";
 const { ObjectID } = require("mongodb");
-const { insertOne, updateOne, findAll, deleteOne, findOne } = require("../db");
+const { insertOne, updateOne, findAll, deleteOne, findOne, deleteAll } = require("../db");
 const { userToken } = require("./users");
 const insert = async (body, token ) => {
   if (!body.name) {
@@ -49,11 +49,9 @@ const getBoard = async (id) => {
 const get = async (token) => {
   const user = await userToken(token)
   if (user.role == 'admin') {
-    console.log('i am admin')
     const res = await findAll("board",{});
     return { success: true, board: res };
   }
-  console.log('i am not admin :(')
   const res = await findAll("board",{userID: user._id});
     return { success: true, board: res };
 };
@@ -62,7 +60,10 @@ const remove = async (body) => {
   if (!body._id || body._id.length != 24) {
     return { success: false, error: "Invalid board" };
   }
-  const res = await deleteOne("board", { _id: ObjectID(body._id) });
+  const res = await deleteOne("board", { _id: ObjectID(body._id) })
+  const id = { boardId: body._id }
+  await deleteAll('list', id)
+  await deleteAll('task', id)
   return { success: true, board: res };
 };
 

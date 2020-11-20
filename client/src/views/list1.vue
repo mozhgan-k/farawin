@@ -110,6 +110,7 @@ export default defineComponent({
     })
     this.listsBoard = list.value
     this.tasks = task
+    this.user = user.value
   },
   methods: {
     pak (lists: {}) {

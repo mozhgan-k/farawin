@@ -32,7 +32,6 @@ const remove = async (req, res) => {
     const resp = await board.remove(req.body);
     res.json(resp);
   } catch (err) {
-    console.log(err);
     res.status(500).json({success: false});
   }
 

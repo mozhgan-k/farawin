@@ -56,6 +56,12 @@ async function deleteOne(collection, condition) {
   return res;
 }
 
+async function deleteAll(collection, condition) {
+  const db = await getInstance()
+  const res = await db.collection(collection).deleteMany(condition);
+  return res;
+}
+
 module.exports = {
   getInstance,
   insertOne,
@@ -63,4 +69,5 @@ module.exports = {
   findOne,
   deleteOne,
   findAll,
+  deleteAll
 };

@@ -116,6 +116,7 @@ export default defineComponent({
       this.user = user.value
     })
     this.users = users.value
+    this.user = user.value
   },
   methods: {
     editMember (user: {}) {

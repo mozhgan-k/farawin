@@ -1,6 +1,6 @@
 "use strict"
 const { ObjectID } = require("mongodb");
-const { insertOne, updateOne, findAll, deleteOne } = require("../db");
+const { insertOne, updateOne, findAll, deleteOne, deleteAll } = require("../db");
 
 const insert = async (body) => {
     if (!body.name) {
@@ -40,6 +40,7 @@ const remove = async (body) => {
         return {success: false, error: "Invalid list"};
     }
     const res = await deleteOne("list", {_id: ObjectID(body._id)});
+    await deleteAll('task', {listId: body._id})
     return {success: true, list: res};
 };
 
