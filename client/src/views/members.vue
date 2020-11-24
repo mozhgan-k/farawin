@@ -18,6 +18,9 @@
       <div v-show="error" class="error flex items-center justify-center bg-red-700 rounded-md mt-8 mb-1">
         <p class="text-white" v-text="error"></p>
       </div>
+      <div v-if="success" class="error flex items-center bg-green-800 justify-center rounded-md mt-8 mb-1">
+        <p class="text-white" v-text="success"></p>
+      </div>
        <form>
        <div class="form-inline flex flex-col justify-center items-center mt-8 mb-2">
          <div>
@@ -109,7 +112,8 @@ export default defineComponent({
     user: {},
     password2: '',
     email2: '',
-    error: ''
+    error: '',
+    success: ''
   }),
   created () {
     checkUser().then(() => {
@@ -136,10 +140,10 @@ export default defineComponent({
     add () {
       addUser({ username: this.username2, email: this.email2, pass: this.password2 }).then(() => {
         if (register.value === true) {
-          alert('Registered')
           this.username2 = ''
           this.email2 = ''
           this.password2 = ''
+          this.success = 'User registered!'
         } else if (error.value.length > 2) {
           this.error = error.value
         }
