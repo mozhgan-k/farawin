@@ -104,6 +104,8 @@ export async function addUser (member: {}) {
     return
   }
   const add = await post('/register', member)
+  _err.value = ''
+  check(member)
   if (add.success === false) {
     _err.value = add.error
   } else {

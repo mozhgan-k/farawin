@@ -44,7 +44,7 @@
                 <th class="px-4 py-2 border-t border-solid border-purple-300 align-top">Email</th>
             </thead>
             <tbody class="border-2 border-solid border-white bg-purple-100">
-              <tr class="px-4 py-2 border-t border-solid border-purple-300 align-top" v-for="user in users" v-bind:key="user._id">
+              <tr class="px-4 py-2 border-t border-solid border-purple-300 align-top" v-for="user in users" :key="user._id">
                 <td class="flex justify-between p-3 hover:bg-purple-200"><a v-text="user.username" ></a>
                   <div class="ml-2">
                   <a @click="editMember(user)"><i class="fas fa-pencil-alt text-sm mr-2 text-green-700"></i></a>
